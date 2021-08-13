@@ -1,9 +1,11 @@
 require 'cgi'
-require './src/main'
+require_relative './src/page'
 
 cgi = CGI.new("html5")
-main = Main.new
-cgi.out do
+page = Page.new(cgi.params)
+
+cgi.out(type: 'text/html',
+        charset: 'UTF-8') do
   
   params = cgi.params
 
@@ -12,9 +14,8 @@ cgi.out do
       cgi.title { "RubyWikiMini" }
     end + 
     cgi.body do
-        cgi.h1{ "RubyWikiMini" } +
-        cgi.p{ params } + 
-        cgi.p{ main::hello }
+        "<p>#{page.main}</p>"
     end
   end
+
 end
