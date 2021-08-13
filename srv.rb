@@ -1,4 +1,6 @@
 # srv.rb
+# 
+# $ ruby srv.rb
 # http://127.0.0.1:8080/index.html
 # http://127.0.0.1:8080/cgi?a=hoge
 
@@ -10,6 +12,5 @@ srv = WEBrick::HTTPServer.new({
     :CGIInterpreter => 'C:\Ruby27-x64\bin\ruby.exe'     # for Windows
 })
 srv.mount('/cgi', WEBrick::HTTPServlet::CGIHandler, './cgi.rb')
-srv.mount('/foo.html', WEBrick::HTTPServlet::FileHandler, 'hoge.html')
 trap("INT"){ srv.shutdown }
 srv.start

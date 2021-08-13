@@ -1,5 +1,5 @@
 require 'cgi'
-require './main'
+require './src/main'
 
 cgi = CGI.new("html5")
 main = Main.new
@@ -10,11 +10,11 @@ cgi.out do
   cgi.html do
     cgi.head do
       cgi.title { "RubyWikiMini" }
-    end +
+    end + 
     cgi.body do
-      cgi.h1{ "RubyWikiMini" } + 
-      cgi.p{ params } +
-      cgi.p{ main::hello }
+        cgi.h1{ "RubyWikiMini" } +
+        cgi.p{ params } + 
+        cgi.p{ main::hello }
     end
   end
 end

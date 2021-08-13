@@ -1,8 +1,8 @@
-# Unit test for ..\main.rb
-# $ ruby .\test\basic_test.rb
+# Unit test for ../src/main.rb
+# $ ruby .\test\test_main.rb
 
 require 'minitest/autorun'
-require_relative '../main.rb'
+require_relative '../src/main.rb'
 
 class TestHello < Minitest::Test
   def setup
